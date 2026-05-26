@@ -6,6 +6,7 @@ const employees = [
         "firstName": "Arjun",
         "email": "e@e.com",
         "password": "123",
+        "leaves": [],
         "taskCounts": {
             "active": 2,
             "newTask": 1,
@@ -50,6 +51,7 @@ const employees = [
         "firstName": "Sneha",
         "email": "employee2@example.com",
         "password": "123",
+        "leaves": [],
         "taskCounts": {
             "active": 1,
             "newTask": 0,
@@ -84,6 +86,7 @@ const employees = [
         "firstName": "Ravi",
         "email": "employee3@example.com",
         "password": "123",
+        "leaves": [],
         "taskCounts": {
             "active": 2,
             "newTask": 1,
@@ -128,6 +131,7 @@ const employees = [
         "firstName": "Priya",
         "email": "employee4@example.com",
         "password": "123",
+        "leaves": [],
         "taskCounts": {
             "active": 2,
             "newTask": 1,
@@ -162,6 +166,7 @@ const employees = [
         "firstName": "Karan",
         "email": "employee5@example.com",
         "password": "123",
+        "leaves": [],
         "taskCounts": {
             "active": 2,
             "newTask": 1,
@@ -219,6 +224,10 @@ export const getLocalStorage = () => {
   const employees = JSON.parse(localStorage.getItem('employees'))
   const admin = JSON.parse(localStorage.getItem('admin'))
 
-  return { employees, admin }
+  const employeesWithLeaves = employees?.map((emp) => ({
+    ...emp,
+    leaves: emp.leaves ?? [],
+  }))
 
+  return { employees: employeesWithLeaves, admin }
 }

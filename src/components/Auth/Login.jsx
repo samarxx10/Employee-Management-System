@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const Login = ({handleLogin}) => {
 
@@ -34,6 +35,9 @@ const Login = ({handleLogin}) => {
                     required className='outline-none bg-transparent border-2 border-emerald-600 font-medium text-lg py-2 px-6 rounded-full mt-3 placeholder:text-gray-400' type="password" placeholder='Enter your password' />
                     <button className=' text-white mt-5 outline-none border-none hover:bg-emerald-700 font-semibold bg-emerald-600 py-2 px-8 w-full rounded-full placeholder:text-white'>Log in </button>
                 </form>
+                <Link to="/" className="mt-6 block text-center text-sm text-gray-400 hover:text-emerald-400">
+                  Back to home
+                </Link>
 
             </div>
 
